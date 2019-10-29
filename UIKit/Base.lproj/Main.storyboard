@@ -290,30 +290,76 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xkR-ZN-6wR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1627.536231884058" y="105.80357142857143"/>
+            <point key="canvasLocation" x="1624" y="105"/>
         </scene>
-        <!--View Controller-->
+        <!--Text Field-->
         <scene sceneID="3Dk-cd-6Rg">
             <objects>
-                <viewController id="ECI-uX-fBx" sceneMemberID="viewController">
+                <viewController id="ECI-uX-fBx" customClass="UI_TextField" customModule="UI_Kit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hZ3-2y-70u">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="26b-tm-BHh">
-                                <rect key="frame" x="112" y="82" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="51" translatesAutoresizingMaskIntoConstraints="NO" id="dVp-Fp-cmN">
+                                <rect key="frame" x="75" y="65.5" width="170" height="349.5"/>
+                                <subviews>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="H62-2h-h5O">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="170" id="rXj-dW-yVU"/>
+                                        </constraints>
+                                        <segments>
+                                            <segment title="First"/>
+                                            <segment title="Second"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="choiseSegment:" destination="j7l-J2-iYn" eventType="valueChanged" id="gEy-ao-FiN"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZE-a3-1Mp">
+                                        <rect key="frame" x="0.0" y="82" width="170" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="jkk-mH-8ON">
+                                        <rect key="frame" x="-2" y="153.5" width="174" height="31"/>
+                                        <connections>
+                                            <action selector="sliderAction:" destination="tjf-qq-eWI" eventType="valueChanged" id="q3o-BF-goc"/>
+                                        </connections>
+                                    </slider>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите имя" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7cm-EP-wV0">
+                                        <rect key="frame" x="0.0" y="234.5" width="170" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eT9-ij-FGI">
+                                        <rect key="frame" x="0.0" y="319.5" width="170" height="30"/>
+                                        <state key="normal" title="Готово"/>
+                                        <connections>
+                                            <action selector="donePressed:" destination="ECI-uX-fBx" eventType="touchUpInside" id="nx3-NS-cJ4"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.92567946259754885" green="0.95745697614243874" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="dVp-Fp-cmN" firstAttribute="centerX" secondItem="P5n-Aw-qCB" secondAttribute="centerX" id="493-b6-ieW"/>
+                            <constraint firstItem="dVp-Fp-cmN" firstAttribute="centerY" secondItem="P5n-Aw-qCB" secondAttribute="centerY" id="hO9-vY-Rz0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="P5n-Aw-qCB"/>
                     </view>
+                    <connections>
+                        <outlet property="button" destination="eT9-ij-FGI" id="2ph-Py-Yah"/>
+                        <outlet property="label" destination="zZE-a3-1Mp" id="Mxb-l8-xG2"/>
+                        <outlet property="segmented" destination="H62-2h-h5O" id="9Zj-Cr-4Jz"/>
+                        <outlet property="textField" destination="7cm-EP-wV0" id="1iY-k6-eQJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5E6-P9-Y7i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2451" y="105"/>
+            <point key="canvasLocation" x="2450.625" y="105"/>
         </scene>
     </scenes>
 </document>

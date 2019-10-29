@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D7066FDA236703A90007BDE5 /* UI_TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7066FD9236703A90007BDE5 /* UI_TextField.swift */; };
 		D71979EE23668E4C00A8D5A4 /* UI_Segmented.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71979ED23668E4C00A8D5A4 /* UI_Segmented.swift */; };
 		D7197A2C2366A09F00A8D5A4 /* UI_Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7197A2B2366A09F00A8D5A4 /* UI_Slider.swift */; };
 		D7305D1723665D93001EAEF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7305D1623665D93001EAEF6 /* AppDelegate.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D7066FD9236703A90007BDE5 /* UI_TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI_TextField.swift; sourceTree = "<group>"; };
 		D71979ED23668E4C00A8D5A4 /* UI_Segmented.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI_Segmented.swift; sourceTree = "<group>"; };
 		D7197A2B2366A09F00A8D5A4 /* UI_Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI_Slider.swift; sourceTree = "<group>"; };
 		D7305D1323665D93001EAEF6 /* UI-Kit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UI-Kit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +110,7 @@
 				D7305D1A23665D93001EAEF6 /* ViewController.swift */,
 				D71979ED23668E4C00A8D5A4 /* UI_Segmented.swift */,
 				D7197A2B2366A09F00A8D5A4 /* UI_Slider.swift */,
+				D7066FD9236703A90007BDE5 /* UI_TextField.swift */,
 				D7305D1C23665D93001EAEF6 /* Main.storyboard */,
 				D7305D1F23665D95001EAEF6 /* Assets.xcassets */,
 				D7305D2123665D95001EAEF6 /* LaunchScreen.storyboard */,
@@ -270,6 +273,7 @@
 				D7305D1723665D93001EAEF6 /* AppDelegate.swift in Sources */,
 				D7305D1923665D93001EAEF6 /* SceneDelegate.swift in Sources */,
 				D71979EE23668E4C00A8D5A4 /* UI_Segmented.swift in Sources */,
+				D7066FDA236703A90007BDE5 /* UI_TextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
