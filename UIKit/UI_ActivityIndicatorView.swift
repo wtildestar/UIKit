@@ -1,5 +1,5 @@
 //
-//  UI_Stepper.swift
+//  UI_ActivityIndicatorView.swift
 //  UI-Kit
 //
 //  Created by wtildestar on 30/10/2019.
@@ -8,17 +8,22 @@
 
 import UIKit
 
-class UI_Stepper: UIViewController {
+class UI_ActivityIndicatorView: UIViewController {
 
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         textView.delegate = self
-        textView.text = ""
+        
+        textView.isHidden = true
+        textView.alpha = 0
+        
+//        textView.text = ""
         
         textView.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 17)
         textView.backgroundColor = self.view.backgroundColor
@@ -32,15 +37,26 @@ class UI_Stepper: UIViewController {
         stepper.backgroundColor = .gray
         stepper.layer.cornerRadius = 5
         
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.color = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
         // Добавляем два наблюдателя для клавиатуры
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(updateTextView(notification:)),
-                                               name: UIResponder.keyboardWillShowNotification,
+                                               name: UIResponder.keyboardWillShowNotification, // Появление
                                                object: nil)
         NotificationCenter.default.addObserver(self,
                                                 selector: #selector(updateTextView(notification:)),
-                                                name: UIResponder.keyboardWillHideNotification,
+                                                name: UIResponder.keyboardWillHideNotification, // Скрытие
                                                 object: nil)
+        
+        UIView.animateKeyframes(withDuration: 0, delay: 3, options: .calculationModeCubic, animations: { self.textView.alpha = 1 }) { (finished) in
+            self.activityIndicator.stopAnimating()
+            self.textView.isHidden = false
+            UIApplication.shared.endIgnoringInteractionEvents()
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -83,7 +99,7 @@ class UI_Stepper: UIViewController {
 
 }
 
-extension UI_Stepper: UITextViewDelegate {
+extension UI_ActivityIndicatorView: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.backgroundColor = .white
         textView.textColor = .gray
